@@ -4,8 +4,8 @@
 #BSUB -gpu "num=1:mode=exclusive_process"
 #BSUB -u w.zifan1@wustl.edu
 #BSUB -J PythonGPUJob
-#BSUB -R 'rusage[mem=40GB]' 
-#BSUB -M 40GB
+#BSUB -R 'rusage[mem=20GB]' 
+#BSUB -M 20GB
 
 # ======= Step 1: Install Miniconda if not already installed =======
 if [ ! -d "$HOME/miniconda" ]; then
@@ -51,6 +51,7 @@ pip install netCDF4 pandas numpy xarray tqdm psutil
 # pip install collections
 # pip install netCDF4 h5netcdf
 pip install h5netcdf
+pip install glob5
 python3 -V
 # ======= Step 7: Check PyTorch and CUDA Compatibility =======
 echo "Checking PyTorch and CUDA compatibility..."
